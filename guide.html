@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .container {
+      position: relative;
+      /* Ensure the container serves as a reference for positioning */
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: black;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .slider {
+      text-align: center;
+      /* Center the images horizontally */
+      margin: 0 auto;
+      /* Center the slider container */
+    }
+
+
+    .slide.active {
+      display: block;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 22px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .option {
+      flex-grow: 1;
+      height: 100%;
+      line-height: 100px;
+      font-family: cursive;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <div class="banner">
+    <div class="option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></a></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+    <div class="option"><a href="guide.html">Ultimate Guide</a></div>
+  </div>
+
+  </div>
+
+  <div class="container">
+    <div class="slider">
+      <img src="oneguide.png" alt="Image 1" class="slide active">
+      <img src="twoguide.png" alt="Image 2" class="slide">
+      <img src="threeguide.png" alt="Image 3" class="slide">
+    </div>
+    <button onclick="prevSlide()" class="prev">Previous</button>
+    <button onclick="nextSlide()" class="next">Next</button>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      showSlide(currentIndex);
+    }
+  </script>
+</body>
+
+</html>

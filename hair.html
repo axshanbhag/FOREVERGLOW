@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haircare Products</title>
+  <style>
+    .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .option {
+      flex-grow: 1;
+      height: 100%;
+      line-height: 100px;
+      font-family: cursive;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .survey-container {
+        max-width: 600px;
+        background-color: lightpink;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    .question {
+        display: none;
+    }
+    .question.active {
+        display: block;
+    }
+    .question-title {
+        font-weight: bold;
+    }
+    .options {
+        margin-top: 10px;
+    }
+    .option {
+        margin-bottom: 10px;
+        font-size:  22px;
+  
+    }
+    
+    
+    .nav-buttons {
+        margin-top: 20px;
+    }
+        button {
+          margin: 0;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+          width:400px;
+          height: 40px;
+          border-radius: 8px;
+          background-color: lightblue;
+          color: white;
+          font-family: cursive;
+          border-color: lightblue;
+
+        }
+
+    .dropbtn {
+      background-color: #3498DB;
+      color: white;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      border: black;
+      cursor: pointer;
+      color: pink;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: #2980B9;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    label{
+      font-family: cursive;
+      font-size: 18px;
+    }
+    h1{
+        font-family: cursive;
+    }
+      p{
+        font-family: cursive;
+        font-size: 15px;
+      }
+    .container2{
+      align-items: center;
+    }
+    .dropdown a:hover {background-color: #ddd;}
+      </style>
+  <link rel="stylesheet" href="style.css" />
+
+      </head>
+    
+<body>
+  <div class="banner">
+    <div class = "option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+    <div class="option"><a href="guide.html">Ultimate Guide</a></div>
+  </div>
+
+  </div>
+  <h1></h1>
+
+  </div>
+    <button onclick="hair()">Haircare</button>
+        <script>
+          function hair() {
+            location.replace("hair.html")
+          }
+        </script>
+
+    <button onclick="skin()">Skincare</button>
+        <script>
+          function skin() {
+            location.replace("skin.html")
+          }
+        </script>
+
+    <button onclick="makeup()">Makeup</button>
+        <script>
+          function makeup() {
+            location.replace("makeup.html")
+          }
+        </script>
+
+
+<div class="container2">
+  <h1><u>See All Hair Products!</u></h1>
+  <label for="makeup">What haircare products are you looking for?</label>
+  <select name="makeup" id="makeup">
+    <option value="filler"></option>
+    <option value="shampoo">Shampoo</option>
+    <option value="conditioner">Conditioner</option>
+    <option value="oils">Hair Oils</option>
+    <option value="straightener">Straightener</option>
+    <option value="curler">Curler</option>
+    <option value="heatprotectant">Heat Protectant</option>
+  </select>
+  <input type="submit" value="Submit" onclick="showImage()">
+  <p>Interested in any of them? Once you tap on the hair product type you are looking for, it will take you to the website for purchase!</p>
+  <div id="output"></div>
+</div>
+  <script>
+  function showImage() {
+    var selectBox = document.getElementById("makeup");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var output = document.getElementById("output");
+
+    // Clear previous content
+    output.innerHTML = '';
+
+    switch (selectedValue) {
+        case "shampoo":
+            appendImage("moroconoilshampoo.png", "https://tinyurl.com/28rhvy53");
+            appendImage("japanshampoo.png", "https://tinyurl.com/59va2naz");
+            appendImage("cherryshampoo.png", "https://tinyurl.com/yc36vj5c");
+            appendImage("livingproofshampoo.png", "https://tinyurl.com/npsr3spf");
+            appendImage("olaplexshampoo.png", "https://tinyurl.com/4hm9s56w");
+            appendImage("quaishampoo.png", "https://tinyurl.com/3rh9rsp8");
+            appendImage("gisoushampoo.png", "https://tinyurl.com/4afeeukk");
+            break;
+        case "conditioner":
+            appendImage("morcoconoilconditoner.png", "https://www.sephora.com/product/P412086");
+            appendImage("andhoneyconditioner.png", "https://tinyurl.com/59va2naz");
+            appendImage("japneseconditoner.png", "https://tinyurl.com/yc36vj5c");
+            appendImage("livingproofconditoner.png", "https://www.sephora.com/product/P270707");
+            appendImage("olaplexconditioner.png", "https://www.sephora.com/product/P443331");
+            appendImage("quaiconditioner.png", "https://www.sephora.com/product/P455864");
+            appendImage("gisouconditoner.png", "https://tinyurl.com/mr2c4vbk");
+            break;
+        case "oils":
+            appendImage("mielleoil.png", "https://tinyurl.com/cpnw48t4");
+            appendImage("morocanoiloil.png","https://tinyurl.com/yc8ert39");
+            appendImage("quaioil.png", "https://tinyurl.com/4scf9ty4");
+            appendImage("andhoneyoil.png", "https://tinyurl.com/nz5tr3z6");
+            appendImage("gisouoil.png","https://tinyurl.com/muzcrk7r");
+            break;
+        case "straightener":
+            appendImage("kristinstraight.png", "https://tinyurl.com/2f4mww89");
+            appendImage("t3straight.png", "https://tinyurl.com/55yjdnrn");
+            appendImage("chistraight.png","https://tinyurl.com/5n7c82y2");
+            appendImage("relvonstraight.png","https://tinyurl.com/34pjn6yp");
+            appendImage("cordlessstraight.png", "https://tinyurl.com/mrx54cvv");
+            break;
+        case "curler":
+            appendImage("t3curler.png", "https://tinyurl.com/bdbc54kh");
+            appendImage("kisscurler.png","https://tinyurl.com/2ue6pm8n");
+            appendImage("chicurler.png", "https://tinyurl.com/5n7f5wmm");
+            break;
+        case "heatprotectant":
+            appendImage("bbheat.png","https://tinyurl.com/bp7h33ck");
+            appendImage("nysheat.png","https://tinyurl.com/3vnvkxn4");
+            appendImage("verbheat.png","https://tinyurl.com/2hfz4469");
+            appendImage("amikaheat.png","https://tinyurl.com/bdzfufxj");
+            appendImage("gisouheat.png","https://tinyurl.com/4xfx5pfa");
+            appendImage("mizaniheat.png","https://tinyurl.com/3ucyhw4d");
+            appendImage("olaplexheat.png", "https://tinyurl.com/5b9nymru");
+            appendImage("briogeoheat.png","https://tinyurl.com/mw2nwj3a");
+            appendImage("kerastaseheat.png","https://tinyurl.com/232zw9y8");
+            appendImage("livingproofheat.png","https://tinyurl.com/29tkwnc4");
+            break;
+        default:
+            // If no option is selected or invalid option
+            break;
+    }
+
+    // Show the images if any were appended
+    if (output.innerHTML !== '') {
+        output.style.display = "block";
+    } else {
+        output.style.display = "none"; // Hide the images if no option is selected
+    }
+  }
+
+
+
+  function appendImage(src, destination) {
+    var outputDiv = document.getElementById("output");
+    var aLink = document.createElement("a");
+    aLink.href = destination;
+    aLink.target = "_blank";
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = "Selected Product";
+    output.appendChild(aLink);
+    aLink.appendChild(img);
+  }
+  </script>
+</body>
+</html>
