@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Skincare Products</title>
+  <style>
+   .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .option {
+      flex-grow: 1;
+      height: 100%;
+      line-height: 100px;
+      font-family: cursive ;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 22px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: cursive;
+    }
+
+    .survey-container {
+        max-width: 600px;
+        background-color: lightpink;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    .question {
+        display: none;
+    }
+    .question.active {
+        display: block;
+    }
+    .question-title {
+        font-weight: bold;
+    }
+    .options {
+        margin-top: 10px;
+    }
+    .option {
+        margin-bottom: 10px;
+    }
+    .nav-buttons {
+        margin-top: 20px;
+    }
+
+    .dropbtn {
+      background-color: #3498DB;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: #2980B9;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    label{
+      font-family: cursive;
+      font-size: 18px;
+    }
+    button {
+      margin: 0;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width:400px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: lightblue;
+      color: white;
+      font-family: cursive;
+      border-color: lightblue;
+
+    }
+
+      }
+    h1{
+        font-family: cursive;
+    }
+    h2{
+      font-family: cursive;
+    }
+    p{
+      font-family: cursive;
+      font-size: 15px;
+    }
+
+
+    .dropdown a:hover {background-color: #ddd;}
+      </style>
+  <link rel="stylesheet" href="style.css" />
+
+      </head>
+<body>
+  <div class="banner">
+    <div class = "option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+    <div class="option"><a href="guide.html">Ultimate Guide</a></div>
+  </div>
+
+  </div>
+
+  <h1> </h1>
+
+<button onclick="hair()">Haircare</button>
+    <script>
+      function hair() {
+        location.replace("hair.html")
+      }
+    </script>
+
+<button onclick="skin()">Skincare</button>
+    <script>
+      function skin() {
+        location.replace("skin.html")
+      }
+    </script>
+
+<button onclick="makeup()">Makeup</button>
+    <script>
+      function makeup() {
+        location.replace("makeup.html")
+      }
+    </script>
+    
+
+    <h1><u>See All Skincare Products!</u></h1>
+  <label for="skin">What skincare products are you looking for?:</label>
+  <select name="skin" id="skin">
+    <option value="filler"></option>
+    <option value="serums">Serums</option>
+    <option value="cleanser">Cleansers</option>
+    <option value="sunscreen">Sunscreen</option>
+    <option value="lipmask">Lip Masks</option>
+    <option value="undereye">Under Eye Mask</option>
+    <option value="toner/exfoliator">Toner/Exfoliator</option>
+    <option value="moisturizer">Moisturizer</option>
+  </select>
+  <input type="submit" value="Submit" onclick="showImage()">
+  <p>Interested in any of them? Once you tap on the skin product type you are looking for, it will take you to the website for purchase!</p>
+  <div id="output"></div>
+
+  <script>
+  function showImage() {
+    var selectBox = document.getElementById("skin");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var output = document.getElementById("output");
+
+    // Clear previous content
+    output.innerHTML = '';
+
+    switch (selectedValue) {
+        case "serums":
+            appendImage("serumord.png", "https://tinyurl.com/2p9kr3mz");
+            appendImage("serumbyoma.png", "https://tinyurl.com/2akfx5cn");
+            appendImage("serumcera.png","https://tinyurl.com/mrxudxxj");
+            appendImage("serumjoesph.png","https://tinyurl.com/2p96z55");
+            appendImage("serumelf.png","https://tinyurl.com/ms6ebtpy");
+            appendImage("waterserum.png","https://tinyurl.com/33ekzxd9");
+            break;
+        case "cleanser":
+            appendImage("cleansercera.png", "https://www.amazon.com/CeraVe-Foaming-Facial-Cleanser-Washing/dp/B01N1LL62W");
+            appendImage("cleansercetaphil.png", "https://www.amazon.com/CETAPHIL-Hydrating-Sensitive-Fragrance-Non-Foaming/dp/B099N3NM61");
+            appendImage("cleanserlaroche.png", "https://www.amazon.com/Roche-Posay-Toleriane-Purifying-Sensitive-Niacinamide");
+            appendImage("cleanserord.png","https://tinyurl.com/2a7cznfc");
+            appendImage("cleanserkale.png","https://tinyurl.com/559jwac8");
+            appendImage("cleanserbio.png","https://tinyurl.com/2jkdhusn");
+            break;
+        case "sunscreen":
+            appendImage("neutroscreen.png","https://tinyurl.com/y4ruvy2u");
+            appendImage("innisscreen.png","https://tinyurl.com/3wf4xa7d");
+            appendImage("superscreen.png","https://tinyurl.com/yrz4rkhe");
+            appendImage("rochescreen.png","https://tinyurl.com/46857ams");
+            appendImage("bumscreen.png","https://tinyurl.com/38dvf5xv");
+            appendImage("eunscreen.png","https://tinyurl.com/5dtd58k8");
+            appendImage("kahscreen.png","https://tinyurl.com/yc2edpt5");
+            break;
+        case "lipmask":
+            appendImage("laneigelipmask.png","https://tinyurl.com/yvwpcuje");
+            appendImage("elfmask.png","https://tinyurl.com/mr2hacz6");
+            appendImage("byomamask.png","https://tinyurl.com/mr2hacz6");
+            appendImage("vetamask.png","https://tinyurl.com/2u88h9bb");
+            appendImage("mariomask.png","https://tinyurl.com/29w48kcz");
+            appendImage("tatchamask.png","https://tinyurl.com/2s467z96")
+            break;
+        case "undereye":
+            appendImage("peaeye.png","https://tinyurl.com/k4ad95ny");
+            appendImage("pixieye.png","https://tinyurl.com/3hm836ac");
+            appendImage("topicaleye.png","https://tinyurl.com/z2cvxxtt");
+            appendImage("heroeye.png","https://tinyurl.com/yeeh4f8x");
+            appendImage("goldeye.png","https://tinyurl.com/46cym8wy");
+            appendImage("patcheye.png","https://tinyurl.com/y3ue8pe4");
+            appendImage("reuseeye.png","https://tinyurl.com/2zy4b3dv");
+            break;
+        case "toner/exfoliator":
+            appendImage("ordtoner.png","https://tinyurl.com/mr2sfz73");
+            appendImage("glowtoner.png","https://tinyurl.com/3cbv5ytf");
+            appendImage("biotoner.png","https://tinyurl.com/m2b62p8v");
+            appendImage("ceratoner.png","https://tinyurl.com/2vn7vjuy");
+            appendImage("bubbletoner.png","https://tinyurl.com/3cdwx2eh");
+            appendImage("paulaex.png","https://tinyurl.com/4txkc3bb");
+            appendImage("dermex.png","https://tinyurl.com/2x8j5a9e");
+            appendImage("kombuchaex.png","https://tinyurl.com/bdjhcfcf");
+            appendImage("peaceex.png","https://tinyurl.com/yc7fwxf9");
+            appendImage("elfex.png","https://tinyurl.com/2xb6ns2r");
+            break;
+        case "moisturizer":
+            appendImage("ceramoi.png","https://tinyurl.com/w34f4rfa");
+            appendImage("cetaphilmoi.png","https://tinyurl.com/ypd8hp83");
+            appendImage("bubblemoi.png","https://tinyurl.com/2k5wr3dk");
+            appendImage("rochemoi.png","https://tinyurl.com/mwzbpjft");
+            appendImage("tatchamoi.png","https://tinyurl.com/yhnhe638");
+            appendImage("ordmoi.png","https://tinyurl.com/5c2d7xau");
+            appendImage("aveenomoi.png","https://tinyurl.com/bdhh6rpw");
+            appendImage("neutrogenamoi.png","https://tinyurl.com/zzzmccxj");
+        default:
+            // If no option is selected or invalid option
+            break;
+    }
+
+    // Show the images if any were appended
+    if (output.innerHTML !== '') {
+        output.style.display = "block";
+    } else {
+        output.style.display = "none"; // Hide the images if no option is selected
+    }
+  }
+
+
+
+  function appendImage(src, destination) {
+    var outputDiv = document.getElementById("output");
+    var aLink = document.createElement("a");
+    aLink.href = destination;
+    aLink.target = "_blank";
+    var img = document.createElement("img");
+    img.src = src;
+    img.alt = "Selected Product";
+    output.appendChild(aLink);
+    aLink.appendChild(img);
+  }
+  </script>
+</body>
+</html>
