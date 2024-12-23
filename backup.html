@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>forever glow</title>
+  <style>
+   #circle-image {
+    width: 280px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+    align: right;
+   }
+    href{
+        font-size: 16px;
+    }
+    .popup {
+     display: none;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     background-color: #b4c0fa;
+     padding: 20px;
+     border-radius: 10px;
+     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+     z-index: 9999;
+     font-family: 'Courier New', Courier, monospace;
+    }
+      
+    .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 24px;
+    }
+
+
+    .option {
+      flex-grow: 1;
+      height: 100%;
+      line-height: 100px;
+      font-family: cursive;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .survey-container{
+        max-width: 600px;
+        background-color: lightpink;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+    }
+   
+    
+        
+    .question {
+        display: none;
+        font-family: cursive;
+      
+    }
+    .question.active {
+        display: block;
+        font-family: cursive;
+    }
+    .question-title {
+        text-decoration: underline;
+        font-size: 18px;
+    }
+    .options {
+        margin-top: 10px;
+    }
+    .option {
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+      
+    .nav-buttons {
+        margin-top: 20px;
+        font-size: 20px;
+        font-style: cursive;
+        border-radius: 12px;
+        size: 100px;
+    }
+      
+      
+    .button{
+        margin: 0;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        width:100px;
+        height:20px;
+        border-radius: 8px;
+        background-color: black;
+        color: white;
+
+      }
+    .result-image {
+        display: none;
+        width: 500px; 
+        height: auto;
+        }
+    .banner-image {
+        display: none;
+        width: 600px; 
+        height: auto;
+    }
+      
+    #previous-btn {
+        display: none;
+        border-radius: 12px;
+    }
+      .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #b4c0fa;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+    
+     
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class = "option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+      <div class="option"><a href="guide.html">Ultimate Guide</a></div>
+  </div>
+
+    <div class="option"><img src="postive.png" alt="Positive Affirmation" id="circle-image"></div>
+      <div class="popup" id="popup">
+        <span class="close" id="close">&times;</span>
+        <h1>Postive Affirmation for the day!</h1>
+        <p>The best version of you is when youself</p>
+        </div>
+    </div>
+  </div>
+    <script src="script.js"></script>
+
+  
+<h1>Time for a Glow Up! Take the quiz below to get started:</h1>
+<div class="survey-container">
+    <div class="question active" id="question">
+        <h2 class="question-title">Take the quiz and get your personalized routine!</h2>
+        <div class="nav-buttons">
+                  <button onclick="nextQuestion(0)">Next</button>
+        </div>
+    </div>
+      <div class="question active" id="question1">
+      <p class="question-title"><b>Question 1: Which of the following best describes your skin texture?</b></p>
+        <div class="options">
+              <div class="option">
+                  <input type="radio" id="q1-option1" name="q1" value="dry">
+                  <label for="q1-option1">Dry</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q1-option2" name="q1" value="combination">
+                  <label for="q1-option2">Combination</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q1-option2" name="q1" value="normal">
+                  <label for="q1-option2">Normal</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q1-option3" name="q1" value="oily">
+                  <label for="q1-option3">Oily</label>
+              </div>
+          </div>
+          <div class="nav-buttons">
+              <button onclick="nextQuestion(1)">Next</button>
+              <button onclick="previousQuestion(1)">Previous</button>
+
+          </div>
+      </div>
+      <div class="question" id="question2">
+        <p class="question-title"><b>Question 2: What is your main skin concern?</b></p>
+          <div class="options">
+              <div class="option">
+                  <input type="radio" id="q2-option1" name="q2" value="uneven">
+                  <label for="q2-option1">Uneven Skin Texture</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q2-option2" name="q2" value="dull">
+                  <label for="q2-option2">Dullness</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q2-option3" name="q2" value="dehydrate">
+                  <label for="q2-option3">Dehydration</label>
+              </div>
+          </div>
+          <div class="nav-buttons">
+              <button onclick="previousQuestion(2)">Previous</button>
+              <button onclick="nextQuestion(2)">Next</button>
+          </div>
+        
+      </div>
+
+      <div class="question" id="question3">
+        <p class="question-title"><b>Question 3: What is the second most important skin issue you would like to address?</b> </p>
+          <div class="options">
+              <div class="option">
+                  <input type="radio" id="q3-option1" name="q3" value="hyperpigmentation">
+                  <label for="q3-option1">Hyperpigmentation</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q3-option2" name="q3" value="skinbarrier">
+                  <label for="q3-option2">Weak Skin Barrier</label>
+              </div>
+              <div class="option">
+                    <input type="radio" id="q3-option3" name="q3" value="nondewy">
+                    <label for="q3-option2">Non-dewy Skin</label>
+                </div>
+              
+          </div>
+          <div class="nav-buttons">
+              <button onclick="previousQuestion(3)">Previous</button>
+              <button onclick="nextQuestion(3)">Next</button>
+          </div>
+      </div>
+  
+      <div class="question" id="question4">
+        <p class="question-title"><b>Question 4: What is your skintone?</b></p>
+          <div class="options">
+              <div class="option">
+                  <input type="radio" id="q2-option1" name="q4" value="cool">
+                  <label for="q2-option1">Cool</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q2-option2" name="q4" value="warm">
+                  <label for="q2-option2">Warm</label>
+              </div>
+              <div class="option">
+                  <input type="radio" id="q2-option3" name="q4" value="neutral">
+                  <label for="q2-option3">Neutral</label>
+              </div>
+          </div>
+          <div class="nav-buttons">
+              <button onclick="previousQuestion(4)">Previous</button>
+              <button onclick="nextQuestion(4)">Next</button>
+          </div>
+      </div>
+  
+      <div class="question" id="question5">
+        <p class="question-title"><b>Question 5: Do you prefer a matte or glossy finish?</b></p>
+          <div class="options">
+             <div class="option">
+                 <input type="radio" id="q5-option1" name="q5" value="matte">
+                 <label for="q5-option1">Matte</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q5-option2" name="q5" value="glossy">
+                 <label for="q5-option2">Glossy</label>
+             </div>
+          </div>
+          <div class="nav-buttons">
+              <button onclick="previousQuestion(5)">Previous</button>
+              <button onclick="nextQuestion(5)">Next</button>
+          </div>
+      </div>
+
+      <div class="question" id="question6">
+        <p class="question-title"><b>Question 6: Do you have fine, thick, or normal hair?</b></p>
+          <div class="options">
+             <div class="option">
+                 <input type="radio" id="q2-option1" name="q6" value="fine">
+                 <label for="q2-option1">Fine</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option2" name="q6" value="thick">
+                 <label for="q2-option2">Thick</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option3" name="q6" value="normal">
+                 <label for="q2-option3">Normal</label>
+             </div>  
+          </div>
+          <div class="nav-buttons">
+              <button onclick="previousQuestion(6)">Previous</button>
+              <button onclick="nextQuestion(6)">Next</button>
+          </div>
+      </div>
+            
+      <div class="question" id="question7">
+        <p class="question-title"><b>Question 7: What best describes your hair type?</b></p>
+          <div class="options">
+             <div class="option">
+                 <input type="radio" id="q2-option1" name="q7" value="curly">
+                 <label for="q2-option1">Curly</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option2" name="q7" value="coily">
+                 <label for="q2-option2">Coily</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option3" name="q7" value="wavy">
+                 <label for="q2-option3">Wavy</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option3" name="q7" value="straight">
+                 <label for="q2-option3">Straight</label>
+             </div>  
+          </div>
+          <div class="nav-buttons">
+              <button onclick="previousQuestion(7)">Previous</button>
+              <button onclick="nextQuestion(7)">Next</button>
+          </div>
+      </div>
+
+      <div class="question" id="question8">
+        <p class="question-title"><b>Question 8: What is your second hair concern?</b></p>
+          <div class="options">
+             <div class="option">
+                 <input type="radio" id="q2-option1" name="q8" value="dryness">
+                 <label for="q2-option1">Dryness</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option2" name="q8" value="shine">
+                 <label for="q2-option2">Shine</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option3" name="q8" value="frizz">
+                 <label for="q2-option3">Frizz</label>
+             </div> 
+          </div>
+          <div class="nav-buttons">
+            <button onclick="previousQuestion(8)">Previous</button>
+            <button onclick="nextQuestion(8)">Next</button>
+          </div>
+      </div>
+
+    <div class="question" id="question9">
+        <p class="question-title"><b>Question 9: Do you have sensitive skin?</b></p>
+          <div class="options">
+             <div class="option">
+                 <input type="radio" id="q2-option1" name="q9" value="sensitive">
+                 <label for="q2-option1">Yes</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option2" name="q9" value="nonsensitive"">
+                 <label for="q2-option2">No</label>
+             </div>  
+          </div>
+          <div class="nav-buttons">
+            <button onclick="previousQuestion(12)">Previous</button>
+            <button onclick="nextQuestion(12)">Next</button>
+          </div>
+      </div>
+    
+      <div class="question" id="question13">
+        <p class="question-title"><b>Are you ready to see your customized portfolio?!</b></p>
+          <div class="options">
+             <div class="option">
+                 <input type="radio" id="q2-option1" name="q13" value="yes">
+                 <label for="q2-option1">Yes!</label>
+             </div>
+             <div class="option">
+                 <input type="radio" id="q2-option2" name="q13" value="yes!">
+                 <label for="q2-option2">YESS!!</label>
+             </div> 
+          </div>
+          <div class="nav-buttons">
+            <button onclick="previousQuestion(13)",>Previous</button>
+            <button id = "submit">Submit</button>
+          </div>
+          
+    <img src="skinbanner.png" class="banner-image" id="skinbanner">
+    
+    <img src="bestwateroily.png" class="result-image" id="oily-cleanser">
+    <img src="bestwaternormaldry.png" class="result-image" id="normal-cleanser">
+    <img src="bestwatercombo.png" class="result-image" id="combination-cleanser">
+    <img src="bestwaternormaldry.png" class="result-image" id="dry-cleanser">
+
+    <img src="bestoiloily.png" class="result-image" id="oily-oil-cleanser">
+    <img src="bestoilnormal.png" class="result-image" id="normal-oil-cleanser">
+    <img src="bestoilcombo.png" class="result-image" id="combination-oil-cleanser">
+    <img src="bestoildry.png" class="result-image" id="dry-oil-cleanser">
+
+    <img src="uneventoner.png" class="result-image" id="uneven-toner">
+    <img src="dulltoner.png" class="result-image" id="dull-toner">
+    <img src="dehydratetoner.png" class="result-image" id="dehydrate-toner">
+
+    <img src="hyperpigmentation.png" class="result-image" id="hyperpigmentation-serum">
+    <img src="skinbarrier.png" class="result-image" id="skinbarrier-serum">
+    <img src="dewyserum.png" class ="result-image" id="dewy-serum">
+
+    <img src="dryskinmoisturizer.png" class="result-image" id="drycream">
+    <img src="normalskinmoisturizer.png" class="result-image" id="normalcream">
+    <img src="oilyskinmoisturizer.png" class="result-image" id="oilycream">
+    <img src="comboskinmoisturizer.png" class="result-image" id="combocream">
+
+    <img src="drycombosunscreen.png" class="result-image" id="drycombosun">
+    <img src="normalsunscreen.png" class="result-image" id="normalcombosun">
+    <img src="oilysunscreen.png" class="result-image" id ="oilycombosun">
+
+    <img src="facemask.png" class="result-image" id="facemask">
+
+    <img src="dryfoundation.png" class="result-image" id="dryfoundation">
+    <img src="normalfoundation.png" class="result-image" id="normalfoundation">
+    <img src="oilyskinfoundation.png" class="result-image" id="oilyfoundation">
+    <img src="combofoundation.png" class="result-image" id="combofoundation">
+
+    <img src="drycomboconcealer.png" class="result-image" id="drycomboconcealer">
+    <img src="normalconcealer.png" class="result-image" id="normalconcealer">
+    <img src="oilyconcealer.png" class="result-image" id="oilyconcealer">
+
+    <img src="drypowder.png" class="result-image" id="drypowder">
+    <img src="normalpowder.png" class="result-image" id="normalpowder">
+    <img src="oilypowder.png" class="result-image" id="oilypowder">
+    <img src="combopowder.png" class="result-image" id="combopowder">
+
+    <img src="mattestick.png" class="result-image" id="mattestick">
+    <img src="glossystick.png" class="result-image" id="glossystick">
+    <img src="matteoil.png" class="result-image" id="matteoil">
+    <img src="glossyoil.png" class="result-image" id="glossyoil">
+
+    <img src="bestmascara.png" class="result-image" id="mascara">
+
+    <img src="matteeyeliner.png" class="result-image" id="matteeyeliner">
+    <img src="glossyeyeliner.png" class="result-image" id="glossyeyliner">
+
+    <img src="sensitiveblush.png" class="result-image" id="sensitiveblush">
+    <img src="nonsensitiveblush.png" class="result-image" id="nonsensitiveblush">
+
+    <img src="sensitivehigh.png" class="result-image" id="sensitivehigh">
+    <img src="nonsensitivehigh.png" class="result-image" id="nonsensitivehigh">
+
+    <img src="coilyshampoo.png" class="result-image" id="coilyshampoo">
+    <img src="coilycond.png" class="result-image" id="coilyconditioner">
+    <img src="straightshampoo.png" class="result-image" id="straightshampoo">
+    <img src="straightcond.png" class="result-image" id="straightconditioner">
+    <img src="wavyshampoo.png" class="result-image" id="wavyshampoo">
+    <img src="wavycond.png" class="result-image" id="wavyconditioner">
+    <img src="curlyshampoo.png" class="result-image" id="curlyshampoo">
+    <img src="curlycond.png" class="result-image" id="curlyconditioner">
+
+    <img src="coilymask.png" class="result-image" id="coilymask">
+    <img src="straightmask.png" class="result-image" id="straightmask">
+    <img src="wavymask.png" class="result-image" id="wavymask">
+    <img src="curlymask.png" class="result-image" id="curlymask">
+
+    <img src="dryoil.png" class="result-image" id="dryoil">
+    <img src="frizzoil.png" class="result-image" id="frizzoil">
+    <img src="shineoil.png" class="result-image" id="shineoil">
+
+      <script>
+          function nextQuestion(currentQuestion) {
+              var currentQuestionElement = document.getElementById('question' + currentQuestion);
+              var currentQuestionInputs = currentQuestionElement.querySelectorAll('input[type="radio"]');
+              var answered = false;
+              currentQuestionInputs.forEach(function(input) {
+                  if (input.checked) {
+                      answered = true;
+                  }
+              });
+              if (!answered) {
+                  alert("Please select an option before proceeding.");
+                  return;
+              }
+              currentQuestionElement.classList.remove('active');
+              var nextQuestionElement = document.getElementById('question' + (currentQuestion + 1));
+              if (nextQuestionElement) {
+                  nextQuestionElement.classList.add('active');
+                  document.getElementById('previous-btn').style.display = 'inline-block';
+              } else {
+                  // End of survey
+                  alert('Survey completed!');
+              }
+          }
+
+          function previousQuestion(currentQuestion) {
+              var currentQuestionElement = document.getElementById('question' + currentQuestion);
+
+              currentQuestionElement.classList.remove('active');
+              var previousQuestionElement = document.getElementById('question' + (currentQuestion - 1));
+              if (previousQuestionElement) {
+                  previousQuestionElement.classList.add('active');
+                  if (currentQuestion === 2) {
+                      document.getElementById('previous-btn').style.display = 'none';
+                  }
+              }
+          }
+          const submitButton = document.getElementById('submit');
+
+          // Listen for button click
+          submitButton.addEventListener('click', () => {
+                
+              
+              // Get selected answers (you'll need to adjust this based on your HTML structure)
+              const q1Answer = document.querySelector('input[name="q1"]:checked').value;
+              const q2Answer = document.querySelector('input[name="q2"]:checked').value;
+              const q3Answer = document.querySelector('input[name="q3"]:checked').value;
+              const q5Answer = document.querySelector('input[name="q5"]:checked').value;
+              const q12Answer = document.querySelector('input[name="q12"]:checked').value;
+              const q7Answer = document.querySelector('input[name="q7"]:checked').value;
+              const q9Answer = document.querySelector('input[name="q9"]:checked').value;
+              // Add more questions and answers
+
+              // Calculate score based on answers (you can define your own scoring system)
+              let score = 0;
+              let toner = 0;
+              let serum = 0;
+              let lip = 0;
+              let blush = 0;
+              let shampoo = 0;
+              let oil = 0;
+              if (q1Answer === 'oily') {
+                  score += 1;
+              }
+              if (q1Answer === 'normal') {
+                  score += 2
+              }
+              if (q1Answer === 'combination') {
+                    score += 3
+                }
+              if (q1Answer === 'dry') {
+                    score += 4
+                }
+              if (q2Answer === 'uneven') {
+                  toner += 1
+              }
+              if (q2Answer === 'dull') {
+                  toner += 2
+              }
+              if (q2Answer === 'dehydrate') {
+                  toner += 3
+              }
+              if (q3Answer === 'hyperpigmentation') {
+                  serum += 1
+              }
+              if (q3Answer === 'skinbarrier') {
+                  serum += 2
+              }
+              if (q3Answer === 'nondewy') {
+                  serum += 3
+              }
+              if (q5Answer === 'matte') {
+                  lip += 1
+              }
+              if (q5Answer === 'glossy') {
+                  lip += 2
+              }
+
+              if (q12Answer === 'sensitive') {
+                  blush += 1
+              }
+              if (q12Answer === 'nonsensitive') {
+                  blush += 2
+              }
+
+              if (q7Answer === 'coily') {
+                  shampoo += 1
+              }
+              if (q7Answer === 'straight') {
+                  shampoo += 2
+              }
+              if (q7Answer === 'wavy') {
+                  shampoo += 3
+              }
+              if (q7Answer === 'curly') {
+                  shampoo += 4
+              }
+              if (q9Answer === 'dryness') {
+                  oil += 1
+              }
+              if (q9Answer === 'shine') {
+                  oil += 2
+              }
+              if (q9Answer === 'frizz') {
+                  oil += 3
+              }
+              // Add more scoring logic
+
+              // Display result images based on score
+              const skinbanner = document.getElementById('skinbanner');
+              
+              const oilycleanser = document.getElementById('oily-cleanser');
+              const normalcleanser = document.getElementById('normal-cleanser');
+              const combinationcleanser = document.getElementById('combination-cleanser');
+              const drycleanser = document.getElementById('dry-cleanser');
+
+              const oilyoilcleanser = document.getElementById('oily-oil-cleanser');
+              const normaloilcleanser = document.getElementById('normal-oil-cleanser');
+              const combinationoilcleanser = document.getElementById('combination-oil-cleanser');
+              const dryoilcleanser = document.getElementById('dry-oil-cleanser');
+
+              const uneven = document.getElementById('uneven-toner');
+              const dull = document.getElementById('dull-toner')
+              const dehydrate = document.getElementById('dehydrate-toner')
+
+              const hyperpigmentation = document.getElementById('hyperpigmentation-serum');
+              const skinbarrier = document.getElementById('skinbarrier-serum');
+              const dewy = document.getElementById('dewy-serum');
+
+              const drycream = document.getElementById('drycream');
+              const normalcream = document.getElementById('normalcream');
+              const oilycream = document.getElementById('oilycream');
+              const combocream = document.getElementById('combocream');
+
+              const drycombosun = document.getElementById('drycombosun');
+              const normalcombosun = document.getElementById('normalcombosun');
+              const oilycombosun = document.getElementById('oilycombosun');
+
+              const facemask = document.getElementById('facemask');
+
+              const dryfound = document.getElementById('dryfoundation');
+              const normalfound = document.getElementById('normalfoundation');
+              const oilyfound = document.getElementById('oilyfoundation');
+              const combofound = document.getElementById('combofoundation');
+
+              const drycomboconcealer = document.getElementById('drycomboconcealer');
+              const normalconcealer = document.getElementById('normalconcealer');
+              const oilyconcealer = document.getElementById('oilyconcealer');
+
+              const drypowder = document.getElementById('drypowder');
+              const normalpowder = document.getElementById('normalpowder');
+              const oilypowder = document.getElementById('oilypowder');
+              const combopowder = document.getElementById('combopowder');
+
+              const mattestick = document.getElementById('mattestick');
+              const glossystick = document.getElementById('glossystick');
+              const matteoil = document.getElementById('matteoil');
+              const glossyoil = document.getElementById('glossyoil');
+
+              const mascara = document.getElementById('mascara');
+
+              const matteeyeliner = document.getElementById('matteeyeliner');
+              const glossyeyeliner = document.getElementById('glossyeyliner');
+
+              const sensitiveblush = document.getElementById('sensitiveblush');
+              const nonsensitiveblush = document.getElementById('nonsensitiveblush');
+
+              const sensitivehigh = document.getElementById('sensitivehigh');
+              const nonsensitivehigh = document.getElementById('nonsensitivehigh');
+
+              const curlyshampoo = document.getElementById('curlyshampoo');
+              const curlycond = document.getElementById('curlyconditioner');
+              const coilyshampoo = document.getElementById('coilyshampoo');
+              const coilycond = document.getElementById('coilyconditioner');
+              const straightshampoo = document.getElementById('straightshampoo');
+              const straightcond = document.getElementById('straightconditioner');
+              const wavyshampoo = document.getElementById('wavyshampoo');
+              const wavycond = document.getElementById('wavyconditioner');
+
+              const curlymask = document.getElementById('curlymask');
+              const straightmask = document.getElementById('straightmask');
+              const wavymask = document.getElementById('wavymask');
+              const coilymask = document.getElementById('coilymask');
+
+              const dryoil = document.getElementById('dryoil');
+              const shineoil = document.getElementById('shineoil');
+              const frizzoil = document.getElementById('frizzoil');
+              if (score === 1) {
+                  skinbanner.style.display = 'inline';
+                  oilycleanser.style.display = 'inline';
+                  oilyoilcleanser.style.display = 'inline';
+                  oilycream.style.display = 'inline';
+                  oilycombosun.style.display = 'inline';
+                  facemask.style.display = 'inline';
+                  oilyfound.style.display = 'inline';
+                  oilyconcealer.style.display = 'inline';
+                  oilypowder.style.display = 'inline';
+                  mascara.style.display = 'inline';}
+              
+              if (score === 2) {
+                skinbanner.style.display = 'inline';
+                normalcleanser.style.display = 'inline';
+                normaloilcleanser.style.display = 'inline';
+                normalcream.style.display = 'inline';
+                normalcombosun.style.display = 'inline';
+                facemask.style.display = 'inline';
+                normalfound.style.display = 'inline';
+                normalconcealer.style.display = 'inline';
+                normalpowder.style.display = 'inline';
+                mascara.style.display = 'inline';}
+
+              if (score === 3) {
+                skinbanner.style.display = 'inline';
+                combinationcleanser.style.display = 'inline';
+                combinationoilcleanser.style.display = 'inline';
+                combocream.style.display = 'inline';
+                drycombosun.style.display = 'inline';
+                facemask.style.display = 'inline';
+                combofound.style.display = 'inline';
+                drycomboconcealer.style.display = 'inline';
+                combopowder.style.display = 'inline';
+                mascara.style.display = 'inline';}
+
+              if (score === 4) {
+                skinbanner.style.display = 'inline';
+                drycleanser.style.display = 'inline';
+                dryoilcleanser.style.display = 'inline';
+                drycream.style.display = 'inline';
+                drycombosun.style.display = 'inline';
+                facemask.style.display = 'inline';
+                dryfound.style.display = 'inline';
+                drycomboconcealer.style.display = 'inline';
+                drypowder.style.display = 'inline';
+                mascara.style.display = 'inline';}
+
+
+              
+              if (toner === 1) {
+                  uneven.style.display = 'inline';}
+              if (toner === 2) {
+                  dull.style.display = 'inline';}
+              if (toner === 3) {
+                  dehydrate.style.display = 'inline';}
+              
+              if (serum === 1) {
+                  hyperpigmentation.style.display = 'inline';
+              }
+              if (serum === 2) {
+                  skinbarrier.style.display = 'inline';
+              }
+              if (serum === 3) {
+                  dewy.style.display = 'inline';
+              }
+              if (lip === 1) {
+                  mattestick.style.display = 'inline';
+                  matteoil.style.display = 'inline';
+                  matteeyeliner.style.display = 'inline';
+              }
+              if (lip === 2) {
+                  glossystick.style.display = 'inline';
+                  glossyoil.style.display = 'inline';
+                  glossyeyeliner.style.display = 'inline';
+              }
+              if (blush === 1) {
+                  sensitiveblush.style.display = 'inline';
+                  sensitivehigh.style.display = 'inline';
+              }
+              if (blush === 2) {
+                  nonsensitiveblush.style.display = 'inline';
+                  nonsensitivehigh.style.display = 'inline';
+              }
+              if (shampoo === 1) {
+                  coilyshampoo.style.display = 'inline';
+                  coilycond.style.display = 'inline';
+                  coilymask.style.mask = 'inline';
+              }
+              if (shampoo === 2) {
+                  straightshampoo.style.display = 'inline';
+                  straightcond.style.display = 'inline';
+                  straightmask.style.display = 'inline';
+              }
+              if (shampoo === 3) {
+                  wavyshampoo.style.display = 'inline';
+                  wavycond.style.display = 'inline';
+                  wavymask.style.display = 'inline';
+              }
+              if (shampoo === 4) {
+                  curlyshampoo.style.display = 'inline';
+                  curlycond.style.display = 'inline';
+                  curlymask.style.display = 'inline';
+              }
+              if (oil === 1) {
+                  dryoil.style.display = 'inline';
+              }
+              if (oil === 2) {
+                  shineoil.style.display = 'inline';
+              }
+              if (oil === 3) {
+                  frizzoil.style.display = 'inline';
+              }
+
+              // Show the "Show Guide" button
+          });
+
+        
+      </script>
+    </body>
+    </html>
