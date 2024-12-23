@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makeup Products</title>
+  <style>
+    .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 24px;
+    }
+    button {
+      margin: 0;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width:400px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: lightblue;
+      color: white;
+      font-family: cursive;
+      border-color: lightblue;
+
+    }
+    
+
+    .option {
+      flex-grow: 1;
+      height: 100%;
+      line-height: 100px;
+      font-family: cursive;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .survey-container {
+        max-width: 600px;
+        background-color: lightpink;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 20px;
+    }
+    .question {
+        display: none;
+    }
+    .question.active {
+        display: block;
+    }
+    .question-title {
+        font-weight: bold;
+    }
+    .options {
+        margin-top: 10px;
+    }
+    .option {
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+    .nav-buttons {
+        margin-top: 20px;
+    }
+
+    .dropbtn {
+      background-color: #3498DB;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+      background-color: #2980B9;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    label{
+      font-family: cursive;
+      font-size: 18px;
+    }
+      h1{
+          font-family: cursive;
+      }
+      
+          p{
+            font-family: cursive;
+            font-size: 15px;
+          }
+      .popup {
+       display: none;
+       position: fixed;
+       top: 50%;
+       left: 50%;
+       transform: translate(-50%, -50%);
+       background-color: #b4c0fa;
+       padding: 20px;
+       border-radius: 10px;
+       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+       z-index: 9999;
+       font-family: 'Courier New', Courier, monospace;
+      }
+
+    .dropdown a:hover {background-color: #ddd;}
+      </style>
+  <link rel="stylesheet" href="style.css" />
+
+      </head>
+<body>
+  <div class="banner">
+    <div class = "option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+    <div class="option"><a href="guide.html">Ultimate Guide</a></div>
+  </div>
+
+  </div>
+    <h1> </h1>
+
+  
+    </div>
+    <button onclick="hair()">Haircare</button>
+        <script>
+          function hair() {
+            location.replace("hair.html")
+          }
+        </script>
+
+    <button onclick="skin()">Skincare</button>
+        <script>
+          function skin() {
+            location.replace("skin.html")
+          }
+        </script>
+
+    <button onclick="makeup()">Makeup</button>
+        <script>
+          function makeup() {
+            location.replace("makeup.html")
+          }
+        </script>
+
+
+  
+  <h1><u>See All Makeup Products!</u></h1>
+  <label for="makeup">What makeup products are you looking for?:</label>
+  <select name="makeup" id="makeup">
+    <option value="filler"></option>
+    <option value="foundation">Foundation</option>
+    <option value="concealer">Concealer</option>
+    <option value="blushhighlighter">Blush/Highlighter</option>
+    <option value="bronzer">Bronzer</option>
+    <option value="mascara">Mascara</option>
+    <option value="powder">Powder</option>
+    <option value="lips">Lip Products</option>
+    <option value="eyeliner">Eyeliner</option>
+  </select>
+  <input type="submit" value="Submit" onclick="showImage()">
+  <p>Interested in any of them? Once you tap on the makeup product type you are looking for, it will take you to the website for purchase!</p>
+  <div id="output"></div>
+
+  <script>
+  function showImage() {
+    var selectBox = document.getElementById("makeup");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var output = document.getElementById("output");
+
+    // Clear previous content
+    output.innerHTML = '';
+
+    switch (selectedValue) {
+        case "foundation":
+            appendImage("milfound.png", "https://tinyurl.com/2sf24pfy");
+            appendImage("maybefound.png", "https://shorturl.at/BEGL4");
+            appendImage("toofacedfound.png", "https://tinyurl.com/d47rmmua");
+            appendImage("lorealfound.png","https://tinyurl.com/2rp88fbj");
+            appendImage("morhefound.png","https://tinyurl.com/45h29rzn");
+            appendImage("cliniquefound.png","https://tinyurl.com/u3zd2npv");
+            appendImage("wokeupfound.png","https://tinyurl.com/wjrrjckz");
+            break;
+        case "concealer":
+            appendImage("narsconc.png","https://tinyurl.com/2frupp7k");
+            appendImage("SAIECONC.png","https://tinyurl.com/ypdymd4z");
+            appendImage("STICKCONCEALER.png","https://tinyurl.com/387ar3da")
+            appendImage("TOWERCONC.png","https://tinyurl.com/365f2aet");
+            appendImage("RARECONCEALER.png","https://tinyurl.com/2rd445uy");
+            appendImage("ELFCONC.png","https://tinyurl.com/9f3hezbm")
+            break;
+        case "blushhighlighter":
+            appendImage("rareblush.png","https://tinyurl.com/4bztf3u7");
+            appendImage("saieblush.png","https://tinyurl.com/bdvm3jvr");
+            appendImage("elfblush.png","https://tinyurl.com/52mtcb38");
+            appendImage("narsbslush.png","https://tinyurl.com/4b6y286p");
+            appendImage("saiehighlighter.png","https://tinyurl.com/yycbmxwd")
+            appendImage("stickhighlighter.png","https://tinyurl.com/yvnjha9h")
+            break;
+        case "bronzer":
+            appendImage("pixibron.png","https://www.ulta.com/p/on-glow-bronze-tinted-moisture-stick-pimprod2037218?sku=2604780");
+            appendImage("rarebron.png","https://tinyurl.com/5hb7nh58");
+            appendImage("nyxbron.png","https://tinyurl.com/mr2f3p7j");
+            appendImage("elfbron.png","https://tinyurl.com/3zpmp967");
+            appendImage("ctbron.png","https://www.ulta.com/p/airbrush-matte-bronzer-pimprod2043364?sku=2619611");
+            appendImage("lysbron.png","https://tinyurl.com/yuen9da6");
+            appendImage("maybebron.png","https://tinyurl.com/2cfpd3zn");
+            break;
+        case "mascara":
+            appendImage("skyma.png","https://tinyurl.com/yc6wdv24");
+            appendImage("lorealma.png","https://tinyurl.com/5n7xebp3");
+            appendImage("revlonma.png","https://tinyurl.com/yy8ady5n");
+            appendImage("essensema.png","https://tinyurl.com/57zx9syf");
+            appendImage("iliama.png","https://tinyurl.com/36u6ddd5");
+            appendImage("elfma.png","https://tinyurl.com/bdd23yhz");
+            appendImage("cliniquema.png","https://tinyurl.com/yey4vec2");
+            appendImage("lancomema.png","https://tinyurl.com/3ejxfrjx");
+            
+            break;
+        case "powder":
+            appendImage("coverpow.png","https://tinyurl.com/yc4s63hv");
+            appendImage("fitpow.png","https://tinyurl.com/3pcx56vx");
+            appendImage("laurapow.png","https://tinyurl.com/yc4585pe");
+            appendImage("elfpow.png","https://tinyurl.com/84jct4ht");
+            appendImage("rarepow.png","https://tinyurl.com/3pjbbz2h");
+            break;
+        case "lips":
+            appendImage("maclip.png","https://tinyurl.com/4aj2mks7");
+            appendImage("ctlip.png","https://tinyurl.com/yhhtcpf7");
+            appendImage("revlip.png","https://tinyurl.com/4t4dhbhw");
+            appendImage("summerlip.png","https://www.sephora.com/product/P455936");
+            appendImage("nyxlip.png","https://tinyurl.com/bdrsf5pb");
+            appendImage("elflip.png","https://tinyurl.com/fwwd355r");
+            appendImage("laneigelip.png","https://tinyurl.com/3ehnvcaj");
+            appendImage("fentylip.png","https://tinyurl.com/44dbyn9c");
+            appendImage("rarelip.png","https://tinyurl.com/y9a2etra");
+            appendImage("colorlip.png","https://tinyurl.com/3rb8dfsh");
+            appendImage("milanilip.png","https://tinyurl.com/mr3n42dn");
+            appendImage("nyxlipliner.png","https://tinyurl.com/2683my6u");
+            break;
+        case "eyeliner":
+            appendImage("elfeyeliner.png","https://tinyurl.com/3fbskva5");
+            appendImage("maybeliner.png","https://tinyurl.com/mut7ut4c");
+            appendImage("nyxliner.png","https://tinyurl.com/3kmen755");
+            appendImage("eyelinersti.png","https://tinyurl.com/563z4vvs");
+            appendImage("eyelinerwild.png","https://tinyurl.com/3p53x5jy");
+            
+            break;
+        default:
+            // If no option is selected or invalid option
+            break;
+    }
+
+    // Show the images if any were appended
+    if (output.innerHTML !== '') {
+        output.style.display = "block";
+    } else {
+        output.style.display = "none"; // Hide the images if no option is selected
+    }
+  }
+
+  
+
+    function appendImage(src, destination) {
+      var outputDiv = document.getElementById("output");
+      var aLink = document.createElement("a");
+      aLink.href = destination;
+      aLink.target = "_blank";
+      var img = document.createElement("img");
+      img.src = src;
+      img.alt = "Selected Product";
+      output.appendChild(aLink);
+      aLink.appendChild(img);
+    }
+  </script>
+
+</body>
+</html>

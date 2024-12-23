@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Catalog</title>
+  <style>
+
+    .footer {
+      width: 100%;
+      height: 180px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 20px;
+      font-family: cursive;
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #b4c0fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100px;
+      background-color: lightpink;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    h1 {
+      font-family: cursive;
+      font-size: 30px;
+      text-align: center;
+    }
+
+    .option {
+      flex-grow: 1;
+      height: 100%;
+      line-height: 100px;
+      font-family: cursive;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 22px;
+    }
+
+    section image {
+      max-width: 50%;
+      max-height: 100%;
+      margin: 20px auto;
+      background-color: lavenderblush;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      position: relative;
+      width: 50%;
+    }
+
+    button {
+      margin: 0;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 100px;
+      height: 40px;
+      border-radius: 8px;
+      background-color: black;
+      color: white;
+      text-align: center;
+
+    }
+
+    padding {
+      font-size: 40px;
+      padding: 10px;
+      border-radius: 10px;
+
+    }
+
+    .image {
+      opacity: 1;
+      display: block;
+      width: 50%;
+      height: 70%;
+      transition: .5s ease;
+      backface-visibility: hidden;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .container:hover .image {
+      opacity: 0.5;
+    }
+
+    .container:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      background-color: #9faff0;
+      color: white;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      display: inline;
+      margin: 0 12px;
+    }
+
+    ul li a {
+      color: #lavenderblush;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+      color: #0056b3;
+    }
+
+    h2 {
+      font-family: cursive;
+      font-size: 18px;
+    }
+
+    p {
+      width: auto;
+      height: 250px;
+      text-align: center;
+      font-size: 20px;
+      font-family: cursive;
+    }
+
+    img {
+      text-align: center;
+
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 40px;
+      font-family: cursive;
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    href {
+      font-size: 16px;
+    }
+
+    #circle-image {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      cursor: pointer;
+      align: right;
+      padding: 5px;
+    }s
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #b4c0fa;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+    }
+
+
+    container2 {
+      position: absolute;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="banner">
+    <div class="option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+    <div class="option"><a href="guide.html">Ultimate Guide</a></div>
+    <div class="option"><img src="postive.png" alt="Positive Affirmation" id="circle-image"></div>
+    <div class="popup" id="popup">
+      <span class="close" id="close">&times;</span>
+      <h1>Postive Affirmation for the day!</h1>
+      <p>The best version of you is when youself</p>
+    </div>
+  </div>
+  </div>
+  <script src="script.js"></script>
+  </div>
+
+
+  <h3><u>View Our Products!</u></h3>
+  <div class="image-container">
+    <img src="banner.png" alt="skin analysis" class="center">
+
+  </div>
+
+  <div class="footer">
+    <h1><i>Find products for your needs!</i< /h1>
+        <p>Want to find skincare, makeup, and/or hair that are the top products? Stop looking now! Check out products
+          that we recommend by checking out the categories below!</p>
+  </div>
+  <div class="container2">
+    <button onclick="skincare()">Skincare</button>
+    <script>
+      function skincare() {
+        location.replace("skin.html")
+      }
+    </script>
+    <button onclick="makeup()">Makeup</button>
+    <script>
+      function makeup() {
+        location.replace("makeup.html")
+      }
+    </script>
+    <button onclick="hair()">Haircare</button>
+    <script>
+      function hair() {
+        location.replace("hair.html")
+      }
+
+    </script>
+    </continer>
+
+  </div>
+
+
+
+</body>
+
+</html>

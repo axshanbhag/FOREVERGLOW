@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Circle Image Popup</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+  .banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: lightpink;
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .option {
+    flex-grow: 1;
+    height: 100%;
+    line-height: 100px;
+    font-family: cursive;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+
+  #circle-image {
+      width: 300px;
+      height: 250px;
+      border-radius: 50%;
+      cursor: pointer;
+      align: right;
+  }
+
+  .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #b4c0fa;
+      padding: 20px;
+      border-radius: 10px; /* Adjust the border radius to your preference */
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+  }
+
+  .close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+  <div class="banner">
+    <div class = "option"><a href="index.html"><img src="logo.png" alt="forever glow logo" height="100"></div>
+    <div class="option"><a href="takequiz.html">Take the Quiz!</a></div>
+    <div class="option"><a href="product.html">Product Recommendation</a></div>
+    <div class="option"><a href="aboutus.html">About Us</a></div>
+
+    <div class="option"><img src="positiveaff.png" alt="Circle Image" id="circle-image"></div>
+      <div class="popup" id="popup">
+          <span class="close" id="close">&times;</span>
+          <h1>Postive Affirmation for the day!</h1>
+          <p>The best version of you is when youself</p>
+      </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
